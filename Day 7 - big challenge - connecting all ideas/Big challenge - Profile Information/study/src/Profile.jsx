@@ -93,7 +93,7 @@ const listStyle = {
     setAge(e.target.value);
   }
 
-  function getId(id){
+  function selectProfile(id){
     setSelectedID(id);
     const user = information.find(info=>info.id==id);
     if(user){
@@ -102,8 +102,7 @@ const listStyle = {
     }
   }
 
-  function update(e){
-    e.preventDefault();
+  function update(){
     const newInfo = information.map(info=>(
         info.id == selectedID ? {...info, name: name,age: age} : info
     ))
@@ -136,7 +135,7 @@ const listStyle = {
           <div style={cardStyle} key={info.id}>
             <p>Name: {info.name}</p>
             <p>Age: {info.age}</p>
-            <button style={updateBtn} onClick={()=>getId(info.id)}>Update Info</button>
+            <button style={updateBtn} onClick={()=>selectProfile(info.id)}>Update Info</button>
             <button style={deleteBtn} onClick={()=> handleDelete(info.id)}>Delete</button>
           </div>
         ))}
