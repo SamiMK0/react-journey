@@ -79,11 +79,11 @@ const listStyle = {
   const [age, setAge] = useState();
   const [selectedID, setSelectedID] = useState();
   const [information,setInformation] = useState([
-    { id: 1, name: "Sami", age: 22 },
-    { id: 2, name: "Adam", age: 17 },
-    { id: 3, name: "Aya", age: 15 },
-    { id: 4, name: "Aseel", age: 23 },
-    { id: 5, name: "Mona", age: 50 },
+    // { id: 1, name: "Sami", age: 22 },
+    // { id: 2, name: "Adam", age: 17 },
+    // { id: 3, name: "Aya", age: 15 },
+    // { id: 4, name: "Aseel", age: 23 },
+    // { id: 5, name: "Mona", age: 50 },
   ]);
 
   function handleNameChange(e){
@@ -102,7 +102,8 @@ const listStyle = {
     }
   }
 
-  function update(){
+  function update(e){
+    e.preventDefault();
     const newInfo = information.map(info=>(
         info.id == selectedID ? {...info, name: name,age: age} : info
     ))
