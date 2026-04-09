@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 export default function Profile() {
-  // 🔥 Lazy initialization (localStorage)
   const [information, setInformation] = useState(() => {
     const saved = localStorage.getItem("profiles");
     return saved ? JSON.parse(saved) : [];
@@ -12,7 +11,6 @@ export default function Profile() {
   const [selectedID, setSelectedID] = useState(null);
   const [error, setError] = useState("");
 
-  // 🔥 Persist data
   useEffect(() => {
     localStorage.setItem("profiles", JSON.stringify(information));
   }, [information]);
